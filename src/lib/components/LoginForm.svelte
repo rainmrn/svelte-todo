@@ -1,7 +1,12 @@
 <script lang="ts">
+	import { mdiEyeOffOutline, mdiEyeOutline } from '@mdi/js';
+	import Icon from './Icon.svelte';
+
 	let inputStyle =
 		'dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 w-full rounded px-4 py-2.5 focus-visible:outline-none focus-visible:border-amber-600  dark:focus-visible:border-amber-500/40';
 	let { signUp = false, errorMsg, emailFieldValue } = $props();
+
+	let showPassword = $state(false);
 </script>
 
 <main
@@ -30,7 +35,24 @@
 				value={emailFieldValue}
 				class={inputStyle}
 			/>
-			<input type="password" name="password" placeholder="Password" class={inputStyle} />
+			<div class="relative w-full">
+				<input
+					type={showPassword ? 'text' : 'password'}
+					name="password"
+					placeholder="Password"
+					class={inputStyle}
+				/>
+				<div class="h-full absolute top-0 right-1 flex items-center">
+					<button
+						type="button"
+						class="p-2 hover:text-amber-600 hover:bg-amber-500/10 rounded-full text-neutral-700 dark:text-neutral-500 duration-100 ease-in-out cursor-pointer"
+						onclick={() => {
+							showPassword = !showPassword;
+						}}><Icon path={!showPassword ? mdiEyeOutline : mdiEyeOffOutline} /></button
+					>
+				</div>
+			</div>
+
 			<button
 				class="px-4 py-2.5 border bg-amber-50 border-amber-300 text-amber-600 font-semibold shadow-md shadow-amber-800/10 w-full rounded duration-50 ease-in-out cursor-pointer
                 hover:text-zinc-50 hover:bg-amber-600 hover:border-amber-600
@@ -46,7 +68,7 @@
 				{/if}
 				<a
 					href={signUp ? 'login' : 'signup'}
-					class="ml-0.5 underline hover:text-amber-700 dark:hover:text-amber-400"
+					class="ml-0.5 underline hover:text-amber-700 dark:hover:text-amber-500"
 				>
 					{#if signUp}
 						Go to login
