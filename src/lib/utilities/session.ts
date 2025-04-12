@@ -95,6 +95,7 @@ export function setSessionTokenCookie(event: RequestEvent, token: string, expire
         httpOnly: true, // only accessible server-side
         sameSite: "lax",
         expires: expiresAt,
+        secure: false,
         path: "/" // can be accessed from all routes
     });
 }
@@ -104,6 +105,7 @@ export function deleteSessionTokenCookie(event: RequestEvent): void {
         httpOnly: true, 
         sameSite: "lax",
         maxAge: 0,
+        secure: false,
         path: "/"
     });
 }
