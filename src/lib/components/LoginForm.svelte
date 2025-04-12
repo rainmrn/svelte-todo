@@ -5,10 +5,11 @@
 </script>
 
 <main
-	class="h-0 min-h-screen w-full flex flex-col justify-center items-center bg-amber-50 dark:bg-amber-800/10"
+	class="h-dvh w-full flex flex-col justify-center items-center bg-amber-50 dark:bg-amber-800/10"
 >
 	<div
-		class="bg-zinc-50 dark:bg-zinc-900 flex flex-col gap-3 items-center justify-evenly rounded-lg border border-zinc-200 dark:border-zinc-800 px-14 py-8 shadow-md
+		class="bg-zinc-50 dark:bg-zinc-900 flex flex-col gap-3 items-center justify-evenly rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-md
+    px-8 md:px-14 py-8 relative -top-3
     w-6/7 h-3/5 sm:w-5/7 md:w-4/7 lg:w-3/7 xl:w-2/6 2xl:w-2/7"
 	>
 		<h1 class="text-3xl font-bold dark:text-zinc-50">
